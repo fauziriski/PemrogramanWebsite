@@ -1,0 +1,38 @@
+body{
+	font-family:sans-serif;
+}
+.footer{
+	height: 100%;
+}
+.footer ul{
+	width:100%;
+	display:inline-block;
+}
+.footer li{
+	text-align:center;
+	width:32.4%;
+	padding:5px;
+	display:inline-block;
+	margin-top: -25px;
+}
+.footer .left{
+	width:32%;
+}
+.footer .mid{
+	border-left:1px solid #fff;
+	border-right:1px solid #fff;
+	width:32%;
+}
+.footer .right{
+	width:32%;
+}
+.mid img{
+	padding-top:3px;
+	width:15px;
+	height:15px;
+}
+.footer a{
+	font-size:20px;
+	font-family:Agency FB;
+	color:#fff;
+}
