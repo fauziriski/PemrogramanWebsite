@@ -1,26 +1,17 @@
 <?php
 session_start();
 require '../funcions.php';
- if( !isset($_SESSION["user"])){
- 	echo "Harus Login";
- 	header("location: login.php");
- 	exit;
+$i =1;
 
- }
-$niknumber=$_SESSION['niknumber'];
-$data = query("SELECT * FROM bis1 WHERE niknumber = $niknumber");
-$data2 = query("SELECT * FROM bis2 WHERE niknumber = $niknumber");
-
-$i = 1;
-
+$data = query("SELECT * FROM bis2 WHERE niknumber > 0 AND kodeboking is NOT NULL");
+$datadiri = $_SESSION["admin"];
 
 ?>
-
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Tiket</title>
+	<title>Berangkat</title>
 	<link rel="stylesheet" type="text/css" href="../style.css">
 
 		<style type="text/css">
@@ -85,20 +76,18 @@ $i = 1;
 	</style>
 </head>
 <body>
-	<div class="header">Welcome!
-		<div class="login">
-			<a href="biodata.php" style="color: white">My Account</a>
-			<a href="mytiket.php" style="color: white">My Tiket</a>
+<div class="header">Welcome! <?=$datadiri;?>
+<div class="login">
 			<a href="../logout.php" style="color: white">Logout</a>
 		</div>
 	</div>
 	<div class= "menu">
 	 	<ul>
 	 		<li><a href="index.php"><img src="../css/busz.png" style="margin-top:7px;width:20px;height:20px"></a></li>
-			<li><a href="booking.php">Ekonomi</a></li>
-			<li><a href="#">Eksekutif</a></li>
-			<li><a href="#">Royal</a></li>
-			<li><a href="rating.php">Rating</a></li>
+			<li><a href="berangkat2.php">Bis Royal</a></li>
+			<li><a href="penumpang2.php">Penumpang Bis Royal</a></li>
+			<li><a href="rating2.php">Rating Bis Royal</a></li>
+			<li><a href="tabelpengguna.php">Data User</a></li>
 		</ul>
 	</div>
 
@@ -117,59 +106,38 @@ $i = 1;
 	</div>
 
 
-
-
 	<div class="kotak_login">
 	<table class="table1">
+		<tr>
+			<td>No.</td>
+			<td>NIKNUMBER</td>
+			<td>USERID</td>
+			<td>ASAL</td>
+			<td>TUJUAN</td>
+			<td>KEBERANGKATAN</td>
+			<td>KURSI</td>
+			<td>BIS</td>
+			<td>HARGA</td>
+			<td>KODEBOKING</td>
+		</tr>
 
-			<tr>
-				<td>NO. </td>
-				<td>NIKNUMBER</td>
-				<td>USERID</td>
-				<td>ASAL</td>
-				<td>TUJUAN</td>
-				<td>KEBERANGKATAN</td>
-				<td>KURSI</td>
-				<td>BIS</td>
-				<td>KODEBOKING</td>
-				<td>BIAYA</td>
-			</tr>
-
-			<?php foreach ($data as $dat) : ?>
-			<tr>
-				<td><?= $i ?></td>
-				<td><?=	$dat['niknumber'] ?></td>
-				<td><?=	$dat['userid'] ?></td>
-				<td><?=	$dat['asal'] ?></td>
-				<td><?=	$dat['tujuan'] ?></td>
-				<td><?=	$dat['keberangkatan'] ?></td>
-				<td><?=	$dat['kursi'] ?></td>
-				<td><?=	$dat['bis'] ?></td>
-				<td><?=	$dat['kodeboking'] ?></td>
-				<td><?=	$dat['harga'] ?></td>
-			</tr>
-
-		<?php $i++?>
-		<?php endforeach ?>
-
-		<?php foreach ($data2 as $dat) : ?>
-			<tr>
-				<td><?= $i ?></td>
-				<td><?=	$dat['niknumber'] ?></td>
-				<td><?=	$dat['userid'] ?></td>
-				<td><?=	$dat['asal'] ?></td>
-				<td><?=	$dat['tujuan'] ?></td>
-				<td><?=	$dat['keberangkatan'] ?></td>
-				<td><?=	$dat['kursi'] ?></td>
-				<td><?=	$dat['bis'] ?></td>
-				<td><?=	$dat['kodeboking'] ?></td>
-				<td><?=	$dat['harga'] ?></td>
-			</tr>
-
-		<?php $i++?>
-		<?php endforeach ?>
+		<?php $i = 1; ?>
+		<?php foreach ($data as $dat) :?>
+		<tr>
+			<td><?= $i; ?></td>
+			<td><?= $dat["niknumber"]; ?></td>
+			<td><?= $dat["userid"]; ?></td>
+			<td><?= $dat["asal"]; ?></td>
+			<td><?= $dat["tujuan"]; ?></td>
+			<td><?= $dat["keberangkatan"]; ?></td>
+			<td><?= $dat["kursi"]; ?></td>
+			<td><?= $dat["bis"]; ?></td>
+			<td><?= $dat["harga"]; ?></td>
+			<td><?= $dat["kodeboking"]; ?></td>
+		</tr>
+	<?php $i++; ?>
+	<?php endforeach; ?>
 	</table>
 	</div>
-
 </body>
 </html>

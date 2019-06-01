@@ -51,7 +51,7 @@ require '../funcions.php';
 	 		<li><a href="index.php"><img src="../css/busz.png" style="margin-top:7px;width:20px;height:20px"></a></li>
 			<li><a href="berangkat.php">Bis Ekonomi</a></li>
 			<li><a href="#">Bis Eksekutif</a></li>
-			<li><a href="#">Bis Royal</a></li>
+			<li><a href="berangkat2.php">Bis Royal</a></li>
 			<li><a href="tabelpengguna.php">Data User</a></li>
 		</ul>
 	</div>

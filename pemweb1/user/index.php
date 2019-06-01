@@ -9,7 +9,7 @@ require '../funcions.php';
  }
  
  $datadiri = '0';
- $result = mysqli_query($conn,"SELECT * FROM bis1 WHERE niknumber = 0 AND asal = 'balam'");
+ $result = mysqli_query($conn,"SELECT * FROM bis2 WHERE niknumber = 0 AND asal = 'balam'");
  $row = mysqli_fetch_assoc($result);
 
 ?>
@@ -49,7 +49,7 @@ require '../funcions.php';
 	 		<li><a href="index.php"><img src="../css/busz.png" style="margin-top:7px;width:20px;height:20px"></a></li>
 			<li><a href="booking.php">Ekonomi</a></li>
 			<li><a href="#">Eksekutif</a></li>
-			<li><a href="#">Royal</a></li>
+			<li><a href="booking2.php">Royal</a></li>
 			<li><a href="rating.php">Rating</a></li>
 		</ul>
 	</div>

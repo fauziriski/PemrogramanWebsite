@@ -3,7 +3,7 @@ session_start();
 require '../funcions.php';
 $i =1;
 
-$data = query("SELECT * FROM db_bis");
+$data = query("SELECT * FROM db_bis WHERE bis ='ekonomi'");
 $datadiri = $_SESSION["admin"];
 
 ?>
@@ -127,7 +127,7 @@ $datadiri = $_SESSION["admin"];
 			<td><?= $dat["status"]; ?></td>
 			<td>
 				<a href="berangkatke.php?id=<?= $dat["id"]; ?>">BERANGKAT</a> ||
-				<a href="sampai.php?id=<?= $dat["id"]; ?>">SAMPAI</a>
+				<a href="sampai2.php?id=<?= $dat["id"]; ?>">SAMPAI</a>
 				
 			</td>
 		</tr>
